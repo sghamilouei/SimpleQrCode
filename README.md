@@ -1,4 +1,4 @@
-###simple QR code reader Using C++
+# simple QR code reader Using C++
 
 team members :
 1. Sayed AmirReza Ghamilouei
