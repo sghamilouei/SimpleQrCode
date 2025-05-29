@@ -1,0 +1,21 @@
+{
+  "name" : "simpleqrcode",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "bf340b9bf2118dff8fd6b857d45fa35c21d3b7e4",
+  "dependencies" : [ {
+    "name" : "nlohmann-json",
+    "version>=" : "3.12.0"
+  }, {
+    "name" : "nu-book-zxing-cpp",
+    "version>=" : "2.3.0"
+  }, {
+    "name" : "vcpkg-cmake-config",
+    "version>=" : "2024-05-23"
+  }, {
+    "name" : "vcpkg-cmake-get-vars",
+    "version>=" : "2024-09-22"
+  }, {
+    "name" : "vcpkg-cmake",
+    "version>=" : "2024-04-23"
+  } ]
+}
