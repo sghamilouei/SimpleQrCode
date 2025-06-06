@@ -10,10 +10,10 @@
 #include <string>
 #include <memory>
 
-
 namespace ZXing {
     class DecodeHints;
     class Result;
+    class ResultPoint;
 }
 
 struct ScanResult {
@@ -27,16 +27,12 @@ public:
     Scanner();
     ~Scanner();
 
-
     std::vector<ScanResult> scan(const cv::Mat& frame);
 
 private:
     std::unique_ptr<ZXing::DecodeHints> hints;
 
-
     ScanResult convertResult(const ZXing::Result& result) const;
-
-
     std::vector<cv::Point> convertPoints(const std::vector<ZXing::ResultPoint>& zxingPoints) const;
 };
 
