@@ -1,16 +1,13 @@
 //
-// Created by sgham on 5/29/2025.
+// Created by M on 6/7/2025.
 //
 
-#ifndef ARCHIVE_H
-#define ARCHIVE_H
+#pragma once
 
+#include <string>
+#include <opencv2/core.hpp>
 
-
-class Archive {
-
-};
-
+void save_archive(const cv::Mat& frame, const std::string& qr_text, const std::string& timestamp = "");
 
 
 #endif //ARCHIVE_H
