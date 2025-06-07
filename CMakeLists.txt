@@ -1,37 +1,21 @@
-
-cmake_minimum_required(VERSION 3.31)
-
-# Integrate vcpkg before the project() command
-if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-            CACHE STRING "Vcpkg toolchain file")
-endif()
-
-project(SimpleQrCode)
+cmake_minimum_required(VERSION 3.20)
+project(Archive_Module)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find required packages
+add_library(Archive STATIC
+        archive.cpp
+        Archve.h
+        Archive.cpp
+)
+
+target_include_directories(Archive PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+find_package(OpenCV REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
-find_package(ZXing CONFIG REQUIRED)
-find_package(OpenCV CONFIG REQUIRED)
-find_package(Protobuf CONFIG REQUIRED)
 
-# Your existing subdirectories
-add_subdirectory(libs/FrameHandler FrameHandler)
-add_subdirectory(libs/Scanner Scanner)
-add_subdirectory(libs/UI UI)
-add_subdirectory(libs/Archive Archive)
-
-add_executable(SimpleQrCode src/main.cpp)
-
-target_link_libraries(SimpleQrCode PRIVATE
-        FrameHandler
-        Scanner
-        UI
-        Archive
-        nlohmann_json::nlohmann_json
-        ZXing::ZXing
+target_link_libraries(Archive PRIVATE
         ${OpenCV_LIBS}
-        protobuf::libprotobuf
+        nlohmann_json::nlohmann_json
 )
