@@ -1,13 +1,12 @@
-//
-// Created by M on 6/7/2025.
-//
-
 #pragma once
 
 #include <string>
 #include <opencv2/core.hpp>
 
-void save_archive(const cv::Mat& frame, const std::string& qr_text, const std::string& timestamp = "");
+class Archive {
+public:
+    static void save(const cv::Mat& frame, const std::string& qrText, const std::string& timestamp = "");
+private:
+    Archive() = delete;
+};
 
-
-#endif //ARCHIVE_H
