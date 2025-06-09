@@ -5,8 +5,10 @@
 
 class Archive {
 public:
-    static void save(const cv::Mat& frame, const std::string& qrText, const std::string& timestamp = "");
+    static bool save(const cv::Mat& frame, const std::string& qrText, const std::string& timestamp = "");
+    static int getTotalScans();
+    static bool clearLogs();
+
 private:
     Archive() = delete;
 };
-
