@@ -1,7 +1,12 @@
 #include <iostream>
+#include "FrameHandler.h"
 
 int main() {
-    std::cout << "Project built" << std::endl;
+    while (true) {
+        FrameHandler camera;
+
+        auto frame = camera.getFrame();
+    }
 
     return 0;
 }
